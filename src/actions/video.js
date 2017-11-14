@@ -11,6 +11,11 @@ export const videoFetch = (video, userInput) => ({
   userInput,
 });
 
+export const setError = error => ({
+  type: 'SET_ERROR',
+  error,
+});
+
 export const startSongFetch = (songType, userInput) => {
   return (dispatch) => {
     return database.ref(`${songType}-songs`)
@@ -34,18 +39,14 @@ export const startSongFetch = (songType, userInput) => {
 
         axios.get(ROOT_URL, { params })
           .then((video) => {
-            console.log(video);
-            dispatch(videoFetch(video.data.items[0].id.videoId, userInput));
+            dispatch(videoFetch(video, userInput));
           })
-          .catch((e) => {
-            // перепиши
-            alert('Sorry, there was an error');
+          .catch((error) => {
+            dispatch(setError(error));
           });
       })
-      .catch((e) => {
-
-        // перепеши
-        alert('Sorry, there was an error');
+      .catch((error) => {
+        dispatch(setError(error));
       });
   };
 };

@@ -6,10 +6,15 @@ import _ from 'lodash';
 import uuid from 'uuid';
 
 export class MessageWindow extends React.Component {
+  errorRender = () => {
+    if (this.props.error > 0) {
+      alert('Sorry, there was an error, please try to ask for a song again later');
+    }
+  }
+
   videoMessageRender = () => {
     if (this.props.video.length > 0) {
       return this.props.video.map((videoItem) => {
-        const messageID = uuid();
         return (
           <div key={videoItem.messageID}>
           <MessageItem 
@@ -30,6 +35,7 @@ export class MessageWindow extends React.Component {
   render () {
     return (
       <div>
+        {this.errorRender()}
         {this.videoMessageRender()}
       </div>
     );
@@ -39,6 +45,7 @@ export class MessageWindow extends React.Component {
 const mapStateToProps = (state) => {
   return {
     video: state.video,
+    error: state.error,
   };
 };
 
