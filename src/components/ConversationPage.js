@@ -12,8 +12,10 @@ class ConversationPage extends React.Component {
   render() {
     return (
       <div className="">
-        <div className="">
+        <div className="content-container">
           <h1 className="">I am a song bot, ask me for a song</h1>
+        </div>
+        <div className="content-container">
           <MessageWindow />
           <MessageForm 
             onSubmit={this.onSubmit}

@@ -6,9 +6,9 @@ export default (state = [], action) => {
       return [
         ...state,
         {
-          videoID: action.video.data.items[0].id.videoId,
           message: action.userInput,
-          messageID: uuid(),
+          messageId: action.messageId,
+          videoId: action.videoId,
         }];
     default:
       return state;

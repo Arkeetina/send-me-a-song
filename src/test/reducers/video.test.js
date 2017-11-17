@@ -6,28 +6,20 @@ test('should set default state', () => {
   expect(state).toEqual([]);
 });
 
-test('should fetch video ID', () => {
+test('should set video ID, message ID, user message', () => {
   const video = {
-    message: 'some song',
-    messageID: '123ss',
-    videoID: '123ss',
+    message: 'sad',
+    messageId: '123ss',
+    videoId: '123ss',
   };
+
   const action = {
     type: 'VIDEO_FETCH',
-    message: video.message,
-    messageID: video.messageID,
-    videoID: video.videoID,
+    userInput: video.message,
+    messageId: video.messageId,
+    videoId: video.videoId,
   };
 
   const state = videoReducer(videos, action);
   expect(state).toEqual([...videos, video]);
 });
-
-
-// const action = {
-//   type: 'VIDEO_FETCH',
-//   video,
-// };
-// const state = videoReducer(videos, action);
-// expect(state.length).toBe(4);
-// expect(state).toEqual([...videos, video]);

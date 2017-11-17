@@ -13,7 +13,7 @@ export default class MessageForm extends React.Component {
 
   onTextAreaChange = event => {
     const input = event.target.value;
-    this.setState (() => ({input}));
+    this.setState (() => ({ input }));
   }
 
   onSubmit = (event) => {
@@ -29,14 +29,15 @@ export default class MessageForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <textarea 
+      <form className="form" onSubmit={this.onSubmit}>
+        <textarea
+          className="textarea"
           type="text"
           value={this.state.input}
           onChange={this.onTextAreaChange}
         >
         </textarea>
-        <button>Send</button>
+        <button className="button">Send</button>
       </form>
     )
   }

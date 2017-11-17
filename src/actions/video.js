@@ -1,14 +1,16 @@
 import axios from 'axios';
+import uuid from 'uuid';
 import database from '../firebase/firebase';
 import randomSongSelector from '../selectors/randomSongSelector';
 
 const youtubeAPIKey = process.env.YOUTUBE_API_KEY;
 const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
 
-export const videoFetch = (video, userInput) => ({
+export const videoFetch = (videoId, userInput) => ({
   type: 'VIDEO_FETCH',
-  video,
+  videoId,
   userInput,
+  messageId: uuid(),
 });
 
 export const setError = error => ({
@@ -39,7 +41,7 @@ export const startSongFetch = (songType, userInput) => {
 
         axios.get(ROOT_URL, { params })
           .then((video) => {
-            dispatch(videoFetch(video, userInput));
+            dispatch(videoFetch(video.data.items[0].id.videoId, userInput));
           })
           .catch((error) => {
             dispatch(setError(error));

@@ -1,0 +1,36 @@
+.messagebox-container {
+
+}
+
+.message-text {
+  margin: 0;
+  word-break: break-all;
+}
+
+.message-wrapper {
+  margin-bottom: $s-size;
+}
+
+.message-bubble-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.message-bubble {
+  border: 1px solid darken($off-white, 7%);
+  border-radius: 3px;
+  color: $dark-grey;
+  position: relative;
+}
+
+.message-bubble-inner {
+  padding: $s-size;
+}
+
+.o__user-msg {
+  flex-direction: row-reverse;
+}
+
+.o__bot-msg {
+  flex-direction: row;
+}

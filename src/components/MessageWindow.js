@@ -16,19 +16,19 @@ export class MessageWindow extends React.Component {
     if (this.props.video.length > 0) {
       return this.props.video.map((videoItem) => {
         return (
-          <div key={videoItem.messageID}>
+          <div key={videoItem.messageId} className="messagebox-container">
           <MessageItem 
-            key={videoItem.messageID}
+            key={videoItem.messageId}
             message={videoItem.message}
           />
           <VideoItem
-            key={videoItem.videoID}
-            videoID={videoItem.videoID}/>
+            key={videoItem.videoId}
+            videoId={videoItem.videoId}/>
           </div>
         )
       });
     } else {
-      return (<div>Please ask me for a song</div>);
+      return (<p>Please ask me for a song</p>);
     }
   }
 
