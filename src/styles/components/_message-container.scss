@@ -1,7 +1,3 @@
-.messagebox-container {
-
-}
-
 .message-text {
   margin: 0;
   word-break: break-all;
@@ -33,4 +29,13 @@
 
 .o__bot-msg {
   flex-direction: row;
+}
+
+.o__bot-msg iframe {
+  width: 260px;
+  height: 160px;
+  @media (min-width: $desktop-breakpoint) {
+    width: 640px;
+    height: 340px;
+  }
 }

@@ -30,10 +30,4 @@ const mapDispatchToProps = (dispatch, props) => ({
   startSongFetch: (songType, userInput) => dispatch(startSongFetch(songType, userInput)),
 });
 
-// const mapStateToProps = (state) => {
-//   return {
-//     videoID: state.video,
-//   };
-// }
-
 export default connect(null, mapDispatchToProps)(ConversationPage);

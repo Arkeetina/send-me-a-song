@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const VideoItem = props => (
   <div className="message-wrapper">
@@ -8,8 +9,6 @@ const VideoItem = props => (
           <iframe
             id="ytplayer"
             type="text/html"
-            width="640"
-            height="360"
             title="song"
             src={`http://www.youtube.com/embed/${props.videoId}`}
             frameBorder="0"
@@ -19,5 +18,9 @@ const VideoItem = props => (
     </div>
   </div>
 );
+
+VideoItem.propTypes = {
+  videoId: PropTypes.string,
+};
 
 export default VideoItem;

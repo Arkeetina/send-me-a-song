@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MessageItem = props => (
   <div className="message-wrapper">
@@ -11,5 +12,9 @@ const MessageItem = props => (
     </div>
   </div>
 );
+
+MessageItem.propTypes = {
+  message: PropTypes.string,
+};
 
 export default MessageItem;
