@@ -1,0 +1,106 @@
+.text-input {
+    border: 1px solid #cacccd;
+    height: 50px;
+    font-size: $font-size-large;
+    font-weight: 300;
+    padding: $s-size;
+  }
+
+  .message-form {
+    display: flex;
+    flex-direction: column;
+    >* {
+      margin-bottom: $m-size;
+    }
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $m-size;
+    @media (min-width: $desktop-breakpoint) {
+      flex-direction: row;
+      margin-bottom: $l-size;
+    }
+  }
+  
+  .input-group__item {
+    margin-bottom: $s-size;
+    @media (min-width: $desktop-breakpoint) {
+      margin: 0 $s-size 0 0;
+    }
+  }
+
+  .form__error {
+    margin: 0 0 $m-size 0;
+    font-style: italic;
+  }
+  
+  .flexContainer {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+  
+  
+  .select {
+    @extend .text-input;
+  }
+  
+  .msgTextarea {
+    @extend .text-input;
+    height: 42px;
+    resize: none;
+    width: 550px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  }
+
+  input[type="button"]
+  {
+      border: none;
+      outline:none;
+  }
+
+  .msgButton {
+    border: none;
+    color: white;
+    display: inline-block;
+    font-size: $font-size-large;
+    font-weight: 300;
+    line-height: 1;
+    padding: $s-size;
+    text-decoration: none;
+    width: 34px;
+    height: 37px;
+    margin-left: 20px;
+    margin-top: 4px;
+    background-image: url('/images/arrow_button.png');
+    background-repeat: no-repeat;
+  }
+
+  .msgButton--link {
+    background: none;
+  }
+  
+  .msgButton--secondary {
+    background: #888;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+     color: #cccccc;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+     color: #cccccc;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+     color: #cccccc;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+     color: #cccccc;
+  }
+  
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #cccccc;
+  }
+  

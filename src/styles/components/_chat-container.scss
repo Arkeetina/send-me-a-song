@@ -1,0 +1,64 @@
+.chat-container {
+    background-image: url('/images/chat_bg.png');
+    background-repeat: repeat;
+    padding: 10px 0px;
+  }
+
+  .message-text {
+    margin: 0;
+    word-break: break-all;
+  }
+  
+  .message-wrapper {
+    margin-bottom: $s-size;
+  }
+  
+  .message-bubble-container {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .message-bubble {
+    border: 1px solid #D8D8D8;
+    border-radius: 10px;
+    color: $dark-grey;
+    background-color: $white;
+    position: relative;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  }
+  
+  .message-bubble-inner {
+    padding: $s-size;
+  }
+
+  .message-ear {
+      background-image: url('/images/msgShapeOrientRight.png');
+      background-repeat: no-repeat;
+      width: 10px;
+      height: 14px;
+      display: inline-block;
+      position: absolute;
+      right: -10px;
+      top: 6px;
+  }
+  
+  .o__user-msg {
+    flex-direction: row-reverse;
+  }
+  
+  .o__bot-msg {
+    flex-direction: row;
+  }
+  
+  .o__bot-msg iframe {
+    width: 260px;
+    height: 160px;
+    @media (min-width: $tablet-breakpoint) {
+        width: 36rem;
+        height: 22rem;
+      }
+    @media (min-width: $desktop-breakpoint) {
+      width: 46rem;
+      height: 26rem;
+    }
+  }

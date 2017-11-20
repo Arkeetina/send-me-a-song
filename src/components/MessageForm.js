@@ -29,15 +29,18 @@ export default class MessageForm extends React.Component {
 
   render() {
     return (
-      <form className="form" onSubmit={this.onSubmit}>
-        <textarea
-          className="textarea"
-          type="text"
-          value={this.state.input}
-          onChange={this.onTextAreaChange}
-        >
-        </textarea>
-        <button className="button">Send</button>
+      <form className="message-form" onSubmit={this.onSubmit}>
+        <div className="flexContainer">
+          <textarea
+            className="msgTextarea"
+            type="text"
+            value={this.state.input}
+            onChange={this.onTextAreaChange}
+            placeholder="ask for a song.(ex: send me a sad song)"
+          >
+          </textarea>
+          <button className="msgButton"></button>
+        </div>
       </form>
     )
   }

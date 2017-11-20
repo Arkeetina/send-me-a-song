@@ -2,13 +2,16 @@
   box-sizing: border-box;
 }
 
+// Reset
+h1,h2,h3,h4,h5,h6,div,p,ul,li,ol,dd{margin: 0px; padding:0px}
+
 html {
   font-size: 62.5%;
 }
 
 body {
   color: $dark-grey;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: $roboto-font;
   font-size: $m-size;
   line-height: 1.6;
 }
@@ -23,4 +26,10 @@ button:disabled {
 
 .is-active {
   font-weight: bold;
+}
+
+.content-container {
+  margin: 0 auto;
+  padding: 0 $m-size;
+  max-width: 65rem;
 }

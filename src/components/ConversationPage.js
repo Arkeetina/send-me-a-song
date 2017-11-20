@@ -11,15 +11,27 @@ class ConversationPage extends React.Component {
 
   render() {
     return (
-      <div className="">
-        <div className="content-container">
-          <h1 className="">I am a song bot, ask me for a song</h1>
+      <div className="app-container">
+
+        <div className="header-container">
+          <div className="content-container">
+            <div className="header-logo"><img src="/images/logo_waveform.png" /></div>
+            <h1 className="chat-header">I am a song bot. Ask me for a song</h1>
+          </div>
         </div>
-        <div className="content-container">
-          <MessageWindow />
-          <MessageForm 
-            onSubmit={this.onSubmit}
-          />
+
+        <div className="chat-container">
+          <div className="content-container">
+            <MessageWindow />
+          </div>
+        </div>
+
+        <div className="message-form-container">
+          <div className="content-container">
+            <MessageForm 
+              onSubmit={this.onSubmit}
+            />
+          </div>
         </div>
       </div>
     )

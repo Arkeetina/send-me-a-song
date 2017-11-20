@@ -1,0 +1,18 @@
+.header-container {
+    background-color: $white;
+    padding: 10px;
+    border-bottom: 1px solid $white-darker1; 
+  }
+  
+  .header-logo {
+    text-align: center;
+  }
+  
+  h1.chat-header {
+    color: $primary-green;
+    font-size: $font-size-big;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $roboto-font;
+    font-weight: 300;
+  }
