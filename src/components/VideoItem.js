@@ -10,7 +10,7 @@ const VideoItem = props => (
             id="ytplayer"
             type="text/html"
             title="song"
-            src={`http://www.youtube.com/embed/${props.videoId}`}
+            src={`https://www.youtube.com/embed/${props.videoId}`}
             frameBorder="0"
           />
         </div>
