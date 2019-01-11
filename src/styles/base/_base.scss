@@ -18,6 +18,7 @@ body {
 
 button {
   cursor: pointer;
+  outline-style: none;
 }
 
 button:disabled {
@@ -33,3 +34,23 @@ button:disabled {
   padding: 0 $m-size;
   max-width: 65rem;
 }
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.modal-button {
+  margin-top: 10px;
+  padding: 7px;
+  border: none;
+  align-self: center;
+  width: 80px;
+  border-radius: 3px;
+}
+
+.modal-button:hover {
+  background: #ababab;
+}
+

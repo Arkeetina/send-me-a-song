@@ -1,8 +1,8 @@
-import uuid from 'uuid';
+import { VIDEO_FETCH } from '../actions/types';
 
 export default (state = [], action) => {
   switch (action.type) {
-    case 'VIDEO_FETCH':
+    case VIDEO_FETCH:
       return [
         ...state,
         {

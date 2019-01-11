@@ -20,7 +20,7 @@ const VideoItem = props => (
 );
 
 VideoItem.propTypes = {
-  videoId: PropTypes.string,
+  videoId: PropTypes.string.isRequired,
 };
 
 export default VideoItem;

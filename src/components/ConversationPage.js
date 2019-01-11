@@ -1,12 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {startSongFetch, startMessageRender} from '../actions/video';
+import PropTypes from 'prop-types';
+
+import {startSongFetch} from '../actions/video';
 import MessageForm from './MessageForm';
 import MessageWindow from './MessageWindow';
  
 class ConversationPage extends React.Component {
   onSubmit = (songType, userInput) => {
-    this.props.startSongFetch(songType, userInput);
+    this.props.startSongFetch(songType, userInput)
+      .then(() => window.scrollTo(0,document.body.scrollHeight));
   }
 
   render() {
@@ -33,13 +36,19 @@ class ConversationPage extends React.Component {
             />
           </div>
         </div>
+
       </div>
     )
   }
 };
 
+
 const mapDispatchToProps = (dispatch, props) => ({
   startSongFetch: (songType, userInput) => dispatch(startSongFetch(songType, userInput)),
 });
+
+ConversationPage.propTypes = {
+  startSongFetch: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(ConversationPage);

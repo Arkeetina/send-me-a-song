@@ -1,7 +1,7 @@
 import React from 'react';
-import {startSongFetch} from '../actions/video';
+import PropTypes from 'prop-types';
+
 import keyWordsFilter from '../selectors/keyWordsFilter';
-import { userInfo } from 'os';
 
 export default class MessageForm extends React.Component {
   constructor(props) {
@@ -20,9 +20,7 @@ export default class MessageForm extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    if (!this.state.input.trim().length && (event.keyCode === 13 || event.type === 'submit')) {
-      this.setState(() => ({ error: 'Please provide a message for bot' }));
-    } else if (this.state.input.trim().length && (event.keyCode === 13 || event.type === 'submit')) {
+    if (this.state.input.trim().length && (event.keyCode === 13 || event.type === 'submit')) {
       this.setState(() => ({ error: '' }));
       let userInput = this.state.input;
       let songType = keyWordsFilter(userInput); 
@@ -39,6 +37,7 @@ export default class MessageForm extends React.Component {
           <textarea
             className="msgTextarea"
             type="text"
+            autoFocus
             value={this.state.input}
             onChange={this.onTextAreaChange}
             onKeyUp={this.onSubmit}
@@ -49,9 +48,14 @@ export default class MessageForm extends React.Component {
             className="msgButton"
             type="submit"
             >
+            <i className="fas fa-angle-right"></i>
           </button>
         </div>
       </form>
     )
   }
 }
+
+MessageForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

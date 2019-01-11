@@ -1,15 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Modal from 'react-modal';
+
 import MessageItem from './MessageItem';
 import VideoItem from './VideoItem';
-import _ from 'lodash';
-import uuid from 'uuid';
+import { setError } from '../actions/video';
 
-export class MessageWindow extends React.Component {
-  errorRender = () => {
-    if (this.props.error > 0) {
-      alert('Sorry, there was an error, please try to ask for a song again later');
-    }
+const customStyles = {
+  content : {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    fontSize: '15px',
+    transform: 'translate(-50%, -50%)',
+    display: 'flex',
+    textAlign: 'center',
+    flexFlow: 'column',
+  }
+};
+
+Modal.setAppElement('#app');
+
+export class MessageWindow extends React.Component {  
+  closeModal = () => {
+    this.props.setError(false);
   }
 
   videoMessageRender = () => {
@@ -27,26 +44,45 @@ export class MessageWindow extends React.Component {
           </div>
         )
       });
-    } else {
-      return (<p>Please ask me for a song</p>);
     }
   }
 
   render () {
+    const { loadingStatus } = this.props;
     return (
       <div>
-        {this.errorRender()}
+        <Modal
+          isOpen={loadingStatus.showError}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+        >
+          <p>There was an error with fetching a song for you.</p>
+          <p>Please try again.</p>
+          <button className="modal-button" onClick={this.closeModal} autoFocus>Ok</button>
+        </Modal>
         {this.videoMessageRender()}
+        {loadingStatus.loading && <div className="loader-container"><img src="/images/loader.svg" /></div>}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    video: state.video,
-    error: state.error,
-  };
+const mapStateToProps = state => ({
+  video: state.video,
+  loadingStatus: state.loadingStatus,
+});
+
+MessageWindow.propTypes = {
+  video: PropTypes.arrayOf(PropTypes.shape({
+    messageId: PropTypes.string,
+    message: PropTypes.string,
+    videoId: PropTypes.string,
+  })).isRequired,
+  setError: PropTypes.func.isRequired,
+  loadingStatus: PropTypes.shape({
+    showError: PropTypes.bool,
+    loading: PropTypes.bool,
+  }),
 };
 
-export default connect(mapStateToProps)(MessageWindow);
+export default connect(mapStateToProps, { setError })(MessageWindow);

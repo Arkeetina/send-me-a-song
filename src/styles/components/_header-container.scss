@@ -1,7 +1,7 @@
 .header-container {
     background-color: $white;
     padding: 10px;
-    border-bottom: 1px solid $white-darker1; 
+    border-bottom: 1px solid $white-darker1;
   }
   
   .header-logo {
@@ -10,7 +10,7 @@
   
   h1.chat-header {
     color: $primary-green;
-    font-size: $font-size-big;
+    font-size: 2rem;
     text-align: center;
     text-transform: uppercase;
     font-family: $roboto-font;
