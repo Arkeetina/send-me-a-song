@@ -5,7 +5,7 @@ import randomSongSelector from '../selectors/randomSongSelector';
 import { VIDEO_FETCH, SET_ERROR, SET_LOADING_STATUS } from './types';
 
 const youtubeAPIKey = process.env.YOUTUBE_API_KEY;
-const ROOT_URL = 'https://www.googleapis.com/youtubee/v3/search';
+const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 export const setVideoMessage = (videoId, userInput) => ({
   type: VIDEO_FETCH,
