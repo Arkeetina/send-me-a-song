@@ -55,8 +55,12 @@
     height: 160px;
     @media (min-width: $tablet-breakpoint) {
         width: 36rem;
-        height: 22rem;
-      }
+        height: 20rem;
+    }
+    @media (max-width: 420px) {
+      width: 26rem;
+      height: 17rem;
+  }
     @media (min-width: $desktop-breakpoint) {
       width: 46rem;
       height: 26rem;
